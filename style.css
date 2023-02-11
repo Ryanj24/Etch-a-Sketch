@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+header {
+    width: 100vw;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    background-color: yellow;
+}
+
+.control-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.control-form .grid-size {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.control-form .grid-size label {
+    margin-right: 10px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: aqua;
+    border: 2px solid;
+    width: 700px;
+    height: 700px;
+    margin-left: 200px;
+}
