@@ -1,30 +1,39 @@
-const form = document.querySelector(".control-form");
-const display = document.querySelector("#size");
+// Select DOM elements that we need
+
+// Select element to display the grid size to the user
+const display = document.querySelector("#sizeOutput");
+
+// Select the grid container itself
 const canvas = document.querySelector(".grid");
 
+// Select the range slider element that carries the value of the size 
+let gridDimensions = document.querySelector("#gridSize");
 
 
+// Add an event listener to the range slider input
+gridDimensions.addEventListener("input", function() {
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
+    // Store the value that will be the dimension of the grid
+    let size = parseInt(gridDimensions.value);
 
-    // Get size input from DOM
-    let size = document.querySelector("#num").value;
-
-    // Create grid of divs
-    for (i = 0; i < size; i++) {
-        let divs = document.createElement("div");
-        divs.setAttribute("style", `background-color: yellow; border: 1px solid;
-        width: ${700/size}px; height: ${700/size}px;`)
-        canvas.appendChild(divs);
-    }
-
-    // Display size of grid
+    // Display the grid dimension to the user
     display.textContent = `${size} x ${size}`;
 
-    // Change grid size depending on user input
-    // NOTE: DONT WANT TO CHANGE THE GRID SIZE BUT USER THIS CODE FOR THE SMALLER
-    // INDIVIDUAL DIVS TO GO INSIDE
-    //canvas.setAttribute("style", `width: ${size}px; height: ${size}px;`);
+    // Clear the canvas(grid container) before we add new div elements each time
+    // the slider is changed
+    canvas.innerHTML = ""
 
+    // Add the grid-template-columns and grid-template-rows properties to the 
+    // grid container so we can define the correct dimensions
+    canvas.setAttribute("style", `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`);
+
+    // Loop to create the divs that form the grid using the dimensions specified
+    for (i = 0; i < size*size; i++) {
+        const gridDiv = document.createElement("div");
+        gridDiv.classList.add("grid-item");
+        canvas.appendChild(gridDiv);
+    }
+    
+    
 })
+
