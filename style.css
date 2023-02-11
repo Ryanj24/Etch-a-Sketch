@@ -52,3 +52,8 @@ header {
     height: 700px;
     margin-left: 200px;
 }
+
+.grid-div {
+    background-color: yellow;
+    border: 1px solid;
+}
