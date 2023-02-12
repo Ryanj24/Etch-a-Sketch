@@ -9,6 +9,16 @@ const canvas = document.querySelector(".grid");
 // Select the range slider element that carries the value of the size 
 let gridDimensions = document.querySelector("#gridSize");
 
+// Display default grid of 8 x 8
+for (i = 0; i < parseInt(gridDimensions.value)*parseInt(gridDimensions.value); i++) {
+    const gridDiv = document.createElement("div");
+    gridDiv.classList.add("grid-item");
+    gridDiv.addEventListener("mouseover", function() {
+        gridDiv.setAttribute("style", "background-color: black;")
+    })
+    canvas.appendChild(gridDiv);
+}
+
 
 // Add an event listener to the range slider input
 gridDimensions.addEventListener("input", function() {
@@ -31,9 +41,9 @@ gridDimensions.addEventListener("input", function() {
     for (i = 0; i < size*size; i++) {
         const gridDiv = document.createElement("div");
         gridDiv.classList.add("grid-item");
+        gridDiv.addEventListener("mouseover", function() {
+            gridDiv.setAttribute("style", "background-color: black;")
+        })
         canvas.appendChild(gridDiv);
     }
-    
-    
 })
-
