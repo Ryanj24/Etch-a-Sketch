@@ -12,6 +12,19 @@ const clear = document.querySelector("#clearButton");
 // Select the colour selector from the DOM
 const colourPicker = document.querySelector("#rgbPicker");
 
+// Create variable to store boolean value relating to whether mouse/pointer is
+// being held down
+let mouseDown = false;
+
+// Two event listeners to determine when mouse is pressed down and released
+window.addEventListener("mousedown", function() {
+    mouseDown = true;
+})
+
+window.addEventListener("mouseup", function() {
+    mouseDown = false;
+})
+
 
 // Select the range slider element that carries the value of the size 
 let gridDimensions = document.querySelector("#gridSize");
@@ -25,9 +38,11 @@ for (i = 0; i < parseInt(gridDimensions.value)*parseInt(gridDimensions.value); i
     // Add class of "grid-item" to the div
     gridDiv.classList.add("grid-item");
     
-    // Add event listener to the div so when mouse moved over it, background changes
+    // Add event listener to the div so when mouse moved over it and is pressed down, background changes
     gridDiv.addEventListener("mouseover", function() {
-        gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
+        if (mouseDown == true) {
+            gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
+        }
     })
     
     // Add the div to the canvas
@@ -49,9 +64,12 @@ clear.addEventListener("click", function() {
         // Add class of "grid-item" to the div
         gridDiv.classList.add("grid-item");
         
-        // Add event listener to the div so when mouse moved over it, background changes
+        // Add event listener to the div so when mouse moved over it and is pressed down, background changes colour
         gridDiv.addEventListener("mouseover", function() {
-            gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
+            if (mouseDown == true) {
+                gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
+            }
+            //gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
         })
         
         // Add the div to the canvas
@@ -85,9 +103,12 @@ gridDimensions.addEventListener("input", function() {
         // Add the "grid-item" class
         gridDiv.classList.add("grid-item");
         
-        // Add mouseover event listener to change background colour
+        // Add mouseover event listener to change background colour when mouse pressed
         gridDiv.addEventListener("mouseover", function() {
-            gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
+            if (mouseDown == true) {
+                gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
+            }
+            //gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
         })
         
         // Add the div to the canvas to create grid
