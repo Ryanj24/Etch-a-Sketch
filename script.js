@@ -1,8 +1,5 @@
 // Select DOM elements that we need
 
-// Select element to display the grid size to the user
-const display = document.querySelector("#sizeOutput");
-
 // Select the grid container itself
 const canvas = document.querySelector(".grid");
 
@@ -82,9 +79,6 @@ gridDimensions.addEventListener("input", function() {
 
     // Store the value that will be the dimension of the grid
     let size = parseInt(gridDimensions.value);
-
-    // Display the grid dimension to the user
-    display.textContent = `${size} x ${size}`;
 
     // Clear the canvas(grid container) before we add new div elements each time
     // the slider is changed

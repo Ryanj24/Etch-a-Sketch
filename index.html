@@ -9,28 +9,35 @@
 </head>
 <body>
     <div class="container">
-        <div class="controls">
+        <header>
             <header>
                 <h1>Etch-a-Sketch</h1>
                 <div></div>
             </header>
-            <div class="dimensions">
-                <h1>Current Grid Size:</h1>
-                <h2 id="sizeOutput">8 x 8</h2>
-                <input type="range" id="gridSize" value="8" min="8" max="100">
-            </div>
-            <div class="clear">
-                <button id="clearButton">
-                    Clear
-                </button>
-            </div>
-            <div class="colour">
-                <input type="color" id="rgbPicker">
-            </div>
-            
-        </div>
+        </header>
         <div class="grid">
             
+        </div>
+        <div class="controls">
+            <div class="circles"></div>
+            <div class="main-controls">
+                <div class="dimensions">
+                    <h3>Grid Size:</h3>
+                    <input type="range" id="gridSize" value="8" min="8" max="100">
+                </div>
+                <div class="clear-colour">
+                    <div class="colour">
+                        <h3>Colour Choice: </h3>
+                        <input type="color" id="rgbPicker">
+                    </div>
+                    <div class="clear">
+                        <button id="clearButton">
+                            Clear Canvas
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="circles"></div>
         </div>
     </div>
 
