@@ -66,7 +66,6 @@ clear.addEventListener("click", function() {
             if (mouseDown == true) {
                 gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
             }
-            //gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
         })
         
         // Add the div to the canvas
@@ -102,7 +101,6 @@ gridDimensions.addEventListener("input", function() {
             if (mouseDown == true) {
                 gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
             }
-            //gridDiv.setAttribute("style", `background-color: ${colourPicker.value};`)
         })
         
         // Add the div to the canvas to create grid
